@@ -193,7 +193,7 @@ Console.WriteLine("valor em B: " + B);
 }
     
 //Questão 08 
- 
+
        int quantidadeValores = 10;
         double soma = 0;
 
@@ -219,7 +219,84 @@ Console.WriteLine("valor em B: " + B);
 
         // Exibe o resultado
         Console.WriteLine($"A média aritmética dos valores é: {media}");
-    
+
+
+// Questão 09
+
+    static void CalcularMedia(double nota1, double nota2, double nota3, char tipoMedia, out double resultado)
+    {
+        resultado = 0;
+
+        switch (tipoMedia)
+        {
+            case 'A':
+                resultado = (nota1 + nota2 + nota3) / 3;
+                break;
+            case 'P':
+                resultado = (nota1 * 5 + nota2 * 3 + nota3 * 2) / 10;
+                break;
+            case 'H':
+                resultado = 3 / ((1 / nota1) + (1 / nota2) + (1 / nota3));
+                break;
+            default:
+                Console.WriteLine("Tipo de média inválido. Use A, P ou H.");
+                break;
+        }
+    }
+
+    static void Main()
+    {
+        double nota1 = 7.5;
+        double nota2 = 8.0;
+        double nota3 = 9.2;
+        char tipoMedia = 'A'; // Substitua por 'P' ou 'H' para calcular outros tipos de média
+        double resultado;
+
+        CalcularMedia(nota1, nota2, nota3, tipoMedia, out resultado);
+
+        Console.WriteLine($"A média do aluno é: {resultado}");
+}
+
+// Questão 10
+
+
+static void Main()
+    {
+        // Exemplo de uso da função
+        double altura = 1.75; // Altura em metros
+        char sexo = 'M'; // 'M' para masculino, 'F' para feminino
+
+        double pesoIdeal = CalcularPesoIdeal(altura, sexo);
+
+        Console.WriteLine($"Altura: {altura} m");
+        Console.WriteLine($"Sexo: {sexo}");
+        Console.WriteLine($"Peso Ideal: {pesoIdeal:F2} kg");
+    }
+
+    static double CalcularPesoIdeal(double altura, char sexo)
+    {
+        double pesoIdeal;
+
+        if (sexo == 'M')
+        {
+            pesoIdeal = 72.7 * altura - 58;
+        }
+        else if (sexo == 'F')
+        {
+            pesoIdeal = 62.1 * altura - 44.7;
+        }
+        else
+        {
+            // Sexo inválido, retorna um valor negativo para indicar erro
+            pesoIdeal = -1;
+            Console.WriteLine("Sexo inválido. Use 'M' para masculino ou 'F' para feminino.");
+        }
+
+        return pesoIdeal;
+    }
+
+
+
 
 
 
